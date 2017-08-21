@@ -2,7 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:fn="http://www.w3.org/2005/xpath-functions"
   xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/"
-  xmlns:ex="http://keeleleek.ee/pextract"
+  xmlns:pextract="http://keeleleek.ee/pextract"
   targetNamespace="http://keeleleek.ee/pextract"
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
@@ -11,7 +11,7 @@
 
 <xs:annotation>
   <xs:appinfo source="http://www.ogf.org/dfdl/">
-    <dfdl:format  ref="ex:daffodilTest1" separator="" initiator=""
+    <dfdl:format  ref="pextract:daffodilTest1" separator="" initiator=""
       terminator="" leadingSkip='0' textTrimKind="none" initiatedContent="no"
       alignment="implicit" alignmentUnits="bits" trailingSkip="0" ignoreCase="no"
       separatorPosition="infix" occursCountKind="implicit"

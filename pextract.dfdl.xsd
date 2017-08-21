@@ -59,20 +59,19 @@
                 </xs:complexType>
               </xs:element>
               <!-- second part after the tab is variable values -->
-              <xs:element name="variables" dfdl:occursCountKind="parsed" type="xs:string">
-                
-                <!-- <xs:complexType>
-                  <xs:sequence dfdl:separator="," dfdl:separatorPosition="infix" dfdl:separatorSuppressionPolicy="trailingEmpty">
-                    <xs:element name="variable">
-                      <xs:complexType>
-                        <xs:sequence dfdl:separator="#" dfdl:separatorPosition="infix" dfdl:separatorSuppressionPolicy="trailingEmpty">
-                          <xs:element name="variable-number" type="xs:string" dfdl:terminator="="/>
+              <xs:element name="variables">
+                <xs:complexType>
+                  <xs:sequence dfdl:separator="#" dfdl:separatorPosition="infix" dfdl:separatorSuppressionPolicy="trailingEmpty">
+                    <xs:element name="variable-set" type="xs:string" maxOccurs="unbounded">
+                      <!-- <xs:complexType>
+                        <xs:sequence dfdl:separator="," dfdl:separatorPosition="infix" dfdl:separatorSuppressionPolicy="trailingEmpty">
+                          <xs:element name="variable-number" type="xs:string" dfdl:terminator="=" />
                           <xs:element name="variable-value" type="xs:string"/>
                         </xs:sequence>
-                      </xs:complexType>
+                      </xs:complexType> -->
                     </xs:element>
                   </xs:sequence>
-                </xs:complexType> -->
+                </xs:complexType>
               </xs:element>
             </xs:sequence>
           </xs:complexType>

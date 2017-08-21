@@ -36,7 +36,13 @@
                       <xs:complexType>
                         <xs:sequence>
                           <!-- pattern -->
-                          <xs:element name="pattern" type="xs:string" dfdl:terminator=":" />
+                          <xs:element name="pattern" dfdl:terminator=":">
+                            <xs:complexType>
+                              <xs:sequence dfdl:separator="+" dfdl:separatorPosition="infix" dfdl:separatorSuppressionPolicy="trailingEmpty">
+                                <xs:element name="pattern-parts" type="xs:string" maxOccurs="unbounded" />
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
                           <!-- msd -->
                           <xs:element name="msd-descriptions">
                             <xs:complexType>

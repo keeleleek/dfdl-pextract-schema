@@ -35,26 +35,33 @@
               <!-- The first part of a 'paradigm' is the 'paradigm-description' -->
               <xs:element name="paradigm-description">
                 <xs:complexType>
+                  <!-- A 'paradigm-description' consists of 'paradigm-cells'  -->
                   <xs:sequence dfdl:separator="#">
                     <xs:element name="paradigm-cell" maxOccurs="unbounded">
                       <xs:complexType>
+                        <!-- A 'paradigm-cell' consists of two parts:
+                             1) a 'pattern' and
+                             2) the patterns 'msd-descriptions' -->
                         <xs:sequence>
-                          <!-- pattern -->
                           <xs:element name="pattern" dfdl:terminator=":">
                             <xs:complexType>
                               <xs:sequence dfdl:separator="+" dfdl:separatorPosition="infix" dfdl:separatorSuppressionPolicy="trailingEmpty">
+                                <!-- A 'pattern' consists of 'pattern-part' that are either:
+                                     @todo 1) variables
+                                     @todo 2) constants
+                                -->
                                 <xs:element name="pattern-part" type="xs:string" maxOccurs="unbounded" />
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
-                          <!-- msd -->
+                          <!-- The 'msd-descriptions' hold a list of morphosyntactic key-value pairs -->
                           <xs:element name="msd-descriptions">
                             <xs:complexType>
                               <xs:sequence dfdl:separator=",">
                                 <xs:element name="msd-description" maxOccurs="unbounded">
                                   <xs:complexType>
                                     <xs:sequence>
-                                      <xs:element name="msd-name" type="xs:string" dfdl:terminator="=" />
+                                      <xs:element name="msd-name"  type="xs:string" dfdl:terminator="=" />
                                       <xs:element name="msd-value" type="xs:string"/>
                                     </xs:sequence>
                                   </xs:complexType>
@@ -79,7 +86,7 @@
                             <xs:complexType>
                               <xs:sequence>
                                 <xs:element name="variable-number" type="xs:integer" dfdl:terminator="=" />
-                                <xs:element name="variable-value" type="xs:string"/>
+                                <xs:element name="variable-value"  type="xs:string"/>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>

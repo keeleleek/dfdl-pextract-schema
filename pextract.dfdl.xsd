@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:fn="http://www.w3.org/2005/xpath-functions"
+  xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/"
+  xmlns:ex="http://keeleleek.ee/pextract"
+  targetNamespace="http://keeleleek.ee/pextract"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
+
+<xs:include schemaLocation="lib/built-in-formats.xsd" />
+
+<xs:annotation>
+  <xs:appinfo source="http://www.ogf.org/dfdl/">
+    <dfdl:format  ref="ex:daffodilTest1" separator="" initiator=""
+      terminator="" leadingSkip='0' textTrimKind="none" initiatedContent="no"
+      alignment="implicit" alignmentUnits="bits" trailingSkip="0" ignoreCase="no"
+      separatorPosition="infix" occursCountKind="implicit"
+      emptyValueDelimiterPolicy="both" representation="text" textNumberRep="standard"
+      lengthKind="delimited" encoding="UTF-8" />
+  </xs:appinfo>
+</xs:annotation>
+
+<!-- The root document element: 'pextract' -->
+<xs:element name="pfile">
+    <xs:complexType>
+      <xs:sequence dfdl:separator="%NL;" dfdl:separatorPosition="postfix">
+        <xs:element name="paradigm" maxOccurs="unbounded" dfdl:occursCountKind="parsed">
+          <xs:complexType>
+            <!-- a paradigm consists of two parts separated by a tab -->
+            <xs:sequence dfdl:separator="%HT;">
+              <!-- first part of before \t is description -->
+              <xs:element name="paradigm-description">
+                <xs:complexType>
+                  <xs:sequence dfdl:separator="#">
+                    <xs:element name="paradigm-cell" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <!-- pattern -->
+                          <xs:element name="pattern" type="xs:string" dfdl:terminator=":" />
+                          <!-- msd -->
+                          <xs:element name="msd-descriptions">
+                            <xs:complexType>
+                              <xs:sequence dfdl:separator=",">
+                                <xs:element name="msd-description" maxOccurs="unbounded">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="msd-name" type="xs:string" dfdl:terminator="=" />
+                                      <xs:element name="msd-value" type="xs:string"/>
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <!-- second part after the tab is variable values -->
+              <xs:element name="variables" dfdl:occursCountKind="parsed" type="xs:string">
+                
+                <!-- <xs:complexType>
+                  <xs:sequence dfdl:separator="," dfdl:separatorPosition="infix" dfdl:separatorSuppressionPolicy="trailingEmpty">
+                    <xs:element name="variable">
+                      <xs:complexType>
+                        <xs:sequence dfdl:separator="#" dfdl:separatorPosition="infix" dfdl:separatorSuppressionPolicy="trailingEmpty">
+                          <xs:element name="variable-number" type="xs:string" dfdl:terminator="="/>
+                          <xs:element name="variable-value" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType> -->
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+</xs:element>
+</xs:schema>

@@ -20,15 +20,19 @@
   </xs:appinfo>
 </xs:annotation>
 
-<!-- The root document element: 'pextract' -->
-<xs:element name="pfile">
+<!-- The document element is a 'paradigm-file' -->
+<xs:element name="paradigm-file">
     <xs:complexType>
+      <!-- A paradigm-file consists of rows that each describe a 'paradigm' -->
       <xs:sequence dfdl:separator="%NL;" dfdl:separatorPosition="postfix">
         <xs:element name="paradigm" maxOccurs="unbounded" dfdl:occursCountKind="parsed">
           <xs:complexType>
-            <!-- a paradigm consists of two parts separated by a tab -->
+            <!-- a 'paradigm' consists of two parts (separated by a tab):
+                 1) a 'paradigm-description' and
+                 2) a list of attested 'variable-values'
+            -->
             <xs:sequence dfdl:separator="%HT;">
-              <!-- first part of before \t is description -->
+              <!-- The first part of a 'paradigm' is the 'paradigm-description' -->
               <xs:element name="paradigm-description">
                 <xs:complexType>
                   <xs:sequence dfdl:separator="#">
@@ -64,8 +68,8 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <!-- second part after the tab is variable values -->
-              <xs:element name="variables">
+              <!-- The second part of a paradigm is a list of attested 'variable-values' -->
+              <xs:element name="variable-values">
                 <xs:complexType>
                   <xs:sequence dfdl:separator="#" dfdl:separatorPosition="infix" dfdl:separatorSuppressionPolicy="trailingEmpty">
                     <xs:element name="variable-set" maxOccurs="unbounded">

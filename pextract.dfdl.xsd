@@ -39,7 +39,7 @@
                           <xs:element name="pattern" dfdl:terminator=":">
                             <xs:complexType>
                               <xs:sequence dfdl:separator="+" dfdl:separatorPosition="infix" dfdl:separatorSuppressionPolicy="trailingEmpty">
-                                <xs:element name="pattern-parts" type="xs:string" maxOccurs="unbounded" />
+                                <xs:element name="pattern-part" type="xs:string" maxOccurs="unbounded" />
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>

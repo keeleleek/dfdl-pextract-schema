@@ -65,8 +65,14 @@
                     <xs:element name="variable-set" maxOccurs="unbounded">
                       <xs:complexType>
                         <xs:sequence dfdl:separator="," dfdl:separatorPosition="infix" dfdl:separatorSuppressionPolicy="trailingEmpty">
-                          <xs:element name="variable-number" type="xs:string" maxOccurs="unbounded" /> <!-- dfdl:terminator="=" /> -->
-                          <!-- <xs:element name="variable-value" type="xs:string"/> -->
+                          <xs:element name="variable" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="variable-number" type="xs:string" dfdl:terminator="=" />
+                                <xs:element name="variable-value" type="xs:string"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>

@@ -54,15 +54,15 @@
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
-                          <!-- The 'msd-descriptions' hold a list of morphosyntactic key-value pairs -->
-                          <xs:element name="msd-descriptions">
+                          <!-- The 'msd-description' hold a list of morphosyntactic features (key-value pairs) -->
+                          <xs:element name="msd-description">
                             <xs:complexType>
                               <xs:sequence dfdl:separator=",">
-                                <xs:element name="msd-description" maxOccurs="unbounded">
+                                <xs:element name="feature" maxOccurs="unbounded">
                                   <xs:complexType>
                                     <xs:sequence>
-                                      <xs:element name="msd-name"  type="xs:string" dfdl:terminator="=" />
-                                      <xs:element name="msd-value" type="xs:string"/>
+                                      <xs:element name="name"  type="xs:string" dfdl:terminator="=" />
+                                      <xs:element name="value" type="xs:string"/>
                                     </xs:sequence>
                                   </xs:complexType>
                                 </xs:element>

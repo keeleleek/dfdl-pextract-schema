@@ -2,7 +2,7 @@
 
 This is a first try on a  [Data Format Description Language (DFDL)](http://dfdlschemas.github.io/) parser and unparser for [pextract](https://github.com/marfors/paradigmextract) paradigm files. The DFDL schema enables to read and modify extracted paradigm files using XML technology. This makes possible lossless archiving of original pextract files and simpler transformation to the [Lexical Markup Framework](http://www.lexicalmarkupframework.org/).
 
-What is more important - this makes possible automatic generation of a morphology module in the (Grammatical Framework)[http://grammaticalframework.org/] using the (pextract2gf)[https://github.com/keeleleek/pextract2gf] tool.
+What is more important - this makes possible automatic generation of a morphology module in the [Grammatical Framework](http://grammaticalframework.org/) using the [pextract2gf](https://github.com/keeleleek/pextract2gf) tool.
 
 The XML schema is not definite yet. Any comments welcome.
 
